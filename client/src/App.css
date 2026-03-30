@@ -1,0 +1,284 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 30%),
+    linear-gradient(135deg, #0f0f13 0%, #181824 45%, #101014 100%);
+  color: #f5f5f7;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 28px 60px;
+}
+
+.title {
+  text-align: center;
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin: 10px 0 36px;
+  color: #ffffff;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.section-title {
+  margin: 42px 0 18px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.home-menu {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 70px;
+  flex-wrap: wrap;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 8px 0 34px;
+}
+
+.search-input {
+  width: 340px;
+  max-width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-size: 15px;
+  outline: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.search-input:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.06);
+}
+
+.main-btn {
+  padding: 13px 18px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffffff 0%, #d9d9df 100%);
+  color: #111118;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.main-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+}
+
+.main-btn:active {
+  transform: translateY(0);
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #ff5a5f 0%, #d63c42 100%);
+  color: white;
+}
+
+.delete-btn:hover {
+  opacity: 0.92;
+}
+
+.small-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 14px;
+  font-size: 13px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  gap: 26px;
+}
+
+.album-card {
+  position: relative;
+  padding: 18px 18px 16px;
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.album-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 38%);
+  pointer-events: none;
+}
+
+.album-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+.album-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+  margin-bottom: 18px;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.album-card:hover .album-image {
+  transform: scale(1.03);
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.album-title {
+  margin: 4px 0 10px;
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+  letter-spacing: -0.8px;
+}
+
+.album-text {
+  margin: 5px 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.wish {
+  background: rgba(255, 183, 0, 0.14);
+  color: #ffcc4d;
+  border: 1px solid rgba(255, 183, 0, 0.2);
+}
+
+.owned {
+  background: rgba(78, 205, 132, 0.14);
+  color: #69f0a1;
+  border: 1px solid rgba(78, 205, 132, 0.2);
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.button-group .main-btn {
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .title {
+    font-size: 48px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  }
+
+  .album-image {
+    height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 28px 16px 40px;
+  }
+
+  .title {
+    font-size: 38px;
+    margin-bottom: 24px;
+  }
+
+  .top-bar {
+    align-items: stretch;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .main-btn {
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .album-image {
+    height: 240px;
+  }
+}
