@@ -41,7 +41,6 @@
 - 백엔드: Node.js (Express)
 - 데이터베이스: MySQL
 
-프론트엔드에서 axios를 통해 서버로 요청을 보내고, 서버는 Spotify API 및 MySQL과 연동되어 데이터를 처리한다.
 
 ### (2) 데이터 구조
 
