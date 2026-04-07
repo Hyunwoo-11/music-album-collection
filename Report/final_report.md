@@ -54,7 +54,21 @@
   - cover_image
   - status (WISH / OWNED)
 
-### (3) 처리 흐름
+### (3) API 구현
+
+본 시스템은 REST API 기반으로 구현되었으며, 다음과 같은 주요 엔드포인트를 사용하였다.
+
+| Method | URL | 설명 |
+|--------|-----|------|
+| GET | /api/search | 앨범 검색 (Spotify API 연동) |
+| POST | /api/collection | 앨범 컬렉션 추가 |
+| GET | /api/collection | 컬렉션 조회 |
+| PUT | /api/collection/:id | 앨범 상태 변경 |
+| DELETE | /api/collection/:id | 컬렉션 삭제 |
+
+프론트엔드에서는 axios를 사용하여 해당 API를 호출하고, 서버에서는 Express를 통해 요청을 처리한 후 MySQL 데이터베이스와 연동하여 데이터를 관리하였다.
+
+### (4) 처리 흐름
 
 1. 사용자가 검색어 입력
 2. 서버가 Spotify API를 호출하여 결과 반환
